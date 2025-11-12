@@ -53,7 +53,8 @@
   + Test sample để quan sát dự đoán của mô hình trên câu cụ thể.
 
 # 2. Hướng dẫn chạy code
-- Chạy file "Lab_05/src/lab5_text_classification.ipynb" để thấy kết quả chạy chương trình chi tiết 
+- Thay đổi đường dẫn data nếu cần thiết.
+- Chạy file "Lab_05/src/lab5_text_classification.ipynb" để thấy kết quả chạy chương trình chi tiết.
 
 # 3. Bảng so sánh định lượng
 
