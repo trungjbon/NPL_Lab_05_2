@@ -2,7 +2,7 @@
 ## Data Preparation
 - Đọc dữ liệu:
   + Dùng pandas.read_csv() để load train, validation và test set.
-  + Đặt tên cột là text (câu hỏi) và intent (nhãn intent).
+  + Đặt tên cột là text và intent.
 - Label Encoding:
   + Dùng LabelEncoder để biến nhãn text thành nhãn số (intent_label).
   + Số lớp (num_classes) được xác định từ số nhãn unique.
@@ -21,19 +21,17 @@
   + Nếu câu không có từ trong vocab, dùng vector 0.
 - Xây dựng model Dense:
   + Input: kích thước embedding 50.
-  + Dense 128 + ReLU + Dropout 0.5.
+  + Dense units 128 + ReLU + Dropout 0.5.
   + Output layer: softmax.
  
 ## Model 3: Pretrained Word2Vec + LSTM
 - Tokenization & Padding:
-  + Tokenizer với num_words=2000 và <UNK>.
+  + Tokenizer với num_words=2000 và oov_token=UNK.
   + Chuyển câu thành sequences và pad đến max_len=20.
-
 - Prepare embedding layer:
   + Dùng Word2Vec đã train từ model 2.
   + Tạo embedding_matrix dựa trên vocab của tokenizer.
   + Embedding layer: trainable=False (không update embeddings).
-
 - Xây dựng LSTM model:
   + LSTM 128 units, dropout 0.2, recurrent_dropout 0.2.
   + Dense softmax output layer.
@@ -41,11 +39,9 @@
 ## Model 4: Embedding train from scratch + LSTM
 - Tokenization & Padding:
   + Giống Model 3.
-
 - Embedding layer học từ đầu:
   + embedding_dim=400, trainable=True.
   + Không dùng pretrained embeddings.
-
 - Xây dựng LSTM model:
   + LSTM 128 units, dropout 0.2, recurrent_dropout 0.2.
   + Dense softmax output layer.
